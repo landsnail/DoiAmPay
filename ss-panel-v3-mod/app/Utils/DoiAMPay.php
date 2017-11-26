@@ -49,8 +49,6 @@ use App\Services\Mail;
 
 class DoiAMPay{
 
-    protected const VERSION = "2.1.4";
-
     protected $enabled = [
         'wepay'=>1, // 1 启用 0 关闭
         'alipay'=>1, // 1 启用 0 关闭

@@ -24,12 +24,12 @@
 													</li>
 												{/if}
 												{if $enabled['alipay']}
-													<li>
+													<li{if $enabled['wepay']==0} class="active" {/if}>
 														<a class="waves-attach waves-effect type" data-toggle="tab" href="#" data-pay="alipay">支付宝</a>
 													</li>
 												{/if}
 												{if $enabled['qqpay']}
-													<li>
+													<li{if $enabled['wepay']==0 and $enabled['alipay']==0} class="active" {/if}>
 														<a class="waves-attach waves-effect type" data-toggle="tab" href="#" data-pay="qqpay">QQ支付</a>
 													</li>
 												{/if}
@@ -119,7 +119,17 @@
 {include file='user/footer.tpl'}
 <script src=" /assets/public/js/jquery.qrcode.min.js "></script>
 <script>
-	var type = "wepay";
+	{if $enabled['wepay']}
+		var type = "wepay";
+	{else}
+		{if $enabled['alipay']}
+			var type = "alipay";
+		{else}
+			{if $enabled['qqpay']}
+				var type = "qqpay";
+			{/if}
+		{/if}
+	{/if}
 	var pid = 0;
 	$(".type").click(function(){
 		type = $(this).data("pay");
