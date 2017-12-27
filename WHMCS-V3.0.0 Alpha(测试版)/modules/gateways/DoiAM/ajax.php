@@ -7,20 +7,13 @@ use WHMCS\Database\Capsule as DB;
 
 $invoiceid = $_REQUEST['invoiceid'];
 
-$ca = new WHMCS_ClientArea();
-
-$userid = $ca->getUserID() ;
-
-if($userid == 0){
-    exit;
-}
-
-$invoice = DB::table("tblinvoices")->find($invoiceid);
-if (!($invoice and $invoice->userid == $userid)) {
+$invoice = DB::table("tblinvoices")->find((int)$invoiceid);
+if (!($invoice)) {
     die(json_encode(
         [
             'errcode'=>-1,
-            'errmsg' => "invalid invoiceid"
+            'errmsg' => "invalid invoiceid",
+
         ]
     ));
 }
