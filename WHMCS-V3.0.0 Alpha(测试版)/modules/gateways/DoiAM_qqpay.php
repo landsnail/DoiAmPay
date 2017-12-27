@@ -66,6 +66,7 @@ function DoiAM_qqpay_link($arr){
             <a href="#" class="btn btn-success" style="width: auto; ">使用手机QQ扫描上面二维码进行支付</a>
         </center>
     </div>
+    <script type="text/javascript" src="//cdn.staticfile.org/jquery/3.2.1/jquery.js"></script>
     <script>
         setInterval(function(){
             $.ajax({
