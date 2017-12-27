@@ -55,6 +55,7 @@ function DoiAM_alipay_link($arr){
             <a href="#" class="btn btn-success" style="width: auto; " id = "jump_to_alipay">跳转到支付宝</a>
         </center>
     </div>
+    <script type="text/javascript" src="//cdn.staticfile.org/jquery/3.2.1/jquery.js"></script>
     <script>
         $("#jump_to_alipay").click(function(){
             $("#jump_to_alipay").after("$ret->code");
